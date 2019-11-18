@@ -48,21 +48,23 @@ class Student(object):
             return "Billy's High Score > Bob's High Score: " + str(self.getHighScore() > other.getHighScore())
 
 def main():
-    bob = Student("Bob", 4)
-    bob.setScore(1, 95)
-    bob.setScore(2, 57)
-    bob.setScore(3, 80)
-    bob.setScore(4, 40)
-    billy = Student("Billy", 4)
-    billy.setScore(1, 100)
-    billy.setScore(2, 60)
-    billy.setScore(3, 70)
-    billy.setScore(4, 90)
-    print(bob)
-    print(billy)
-    print(billy == bob)
-    print(billy < bob)
-    print(billy > bob)
+    import random
+    kids = []
+    bob = Student("Bob", 7)
+    billy = Student("Billy", 7)
+    sara = Student("Sara", 7)
+    maggie = Student("Maggie", 7)
+    john = Student("John", 7)
+    for count in range(7):
+        maggie.setScore(count, random.randint(0, 100))
+        bob.setScore(count, random.randint(0, 100))
+        billy.setScore(count, random.randint(0, 100))
+        sara.setScore(count, random.randint(0, 100))
+        john.setScore(count, random.randint(0, 100))
+    kids.extend([bob, billy, sara, maggie, john])
+    for count in range(len(kids)):
+        kids.sort()
+        print(kids[count])
 
 
 main()
